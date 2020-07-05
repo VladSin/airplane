@@ -1,6 +1,5 @@
 package org.example.airplane.sin.service.repository.impl;
 
-import lombok.NoArgsConstructor;
 import org.example.airplane.sin.dao.repository.BaseDao;
 import org.example.airplane.sin.service.repository.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
 
-@NoArgsConstructor
 @Service
 @Transactional
 public class BaseServiceImpl<T> implements BaseService<T> {

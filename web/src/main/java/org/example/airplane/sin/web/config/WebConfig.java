@@ -2,6 +2,7 @@ package org.example.airplane.sin.web.config;
 
 import org.example.airplane.sin.service.config.ServiceConfig;
 import org.example.airplane.sin.web.controller.HelloController;
+import org.example.airplane.sin.web.controller.PersonPageController;
 import org.example.airplane.sin.web.controller.PersonRestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -14,7 +15,6 @@ public class WebConfig {
 
     private ServiceConfig serviceConfig;
 
-    @Autowired
     public WebConfig(ServiceConfig serviceConfig) {
         this.serviceConfig = serviceConfig;
     }
@@ -26,6 +26,15 @@ public class WebConfig {
 
     @Bean
     public PersonRestController personRestController(){
-        return new PersonRestController(serviceConfig.personDao());
+        return new PersonRestController(
+                serviceConfig.personService()
+        );
+    }
+
+    @Bean
+    public PersonPageController personPageController(){
+        return new PersonPageController(
+                serviceConfig.personService()
+        );
     }
 }

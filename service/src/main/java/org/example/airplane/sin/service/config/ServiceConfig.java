@@ -1,7 +1,6 @@
 package org.example.airplane.sin.service.config;
 
 import org.example.airplane.sin.dao.config.DaoConfig;
-import org.example.airplane.sin.dao.repository.PersonDao;
 import org.example.airplane.sin.service.repository.BaseService;
 import org.example.airplane.sin.service.repository.PersonService;
 import org.example.airplane.sin.service.repository.impl.BaseServiceImpl;
@@ -24,7 +23,7 @@ public class ServiceConfig {
     }
 
     @Bean
-    public PersonService personDao(){
+    public PersonService personService(){
         return new PersonServiceImpl(daoConfig.personDao());
     }
 }

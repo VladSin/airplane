@@ -9,26 +9,26 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 
 @Configuration
 @Import(HibernateConfig.class)
 @EnableTransactionManagement
 public class DaoConfig {
 
-    private final EntityManager entityManager;
+    private final EntityManagerFactory entityManagerFactory;
 
-    public DaoConfig(EntityManager entityManager) {
-        this.entityManager = entityManager;
+    public DaoConfig(EntityManagerFactory entityManagerFactory) {
+        this.entityManagerFactory = entityManagerFactory;
     }
 
     @Bean
     public BaseDao baseDao(){
-        return new BaseDaoImpl(entityManager);
+        return new BaseDaoImpl();
     }
 
     @Bean
     public PersonDao personDao(){
-        return new PersonDaoImpl(entityManager);
+        return new PersonDaoImpl();
     }
 }

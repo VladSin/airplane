@@ -14,10 +14,9 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 
     @PersistenceContext
     @Getter
-    private final EntityManager entityManager;
+    private  EntityManager entityManager;
 
-    public BaseDaoImpl(EntityManager entityManager){
-        this.entityManager = entityManager;
+    public BaseDaoImpl( ){
     }
 
     @Override

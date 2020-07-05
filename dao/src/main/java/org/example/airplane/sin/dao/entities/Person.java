@@ -1,36 +1,43 @@
 package org.example.airplane.sin.dao.entities;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
 
 @Data
-@NoArgsConstructor
 @Entity
 @Table(name = "person")
 public class Person {
 
     @Id
-    @Column(name = "PERSON_ID")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "NAME")
+    @Column(name = "name")
     @Pattern(regexp="^[A-Z]+[a-z]+[А-Я]+[а-я]+$",
             message="Username must be alphanumeric with no spaces and first capital")
     private String name;
 
-    @Column(name = "SURNAME")
+    @Column(name = "surname")
     @Pattern(regexp="^[A-Z]+[a-z]+[А-Я]+[а-я]+$",
             message="Username must be alphanumeric with no spaces and first capital")
     private String surname;
 
-    @Column(name = "EMAIL")
+    @Column(name = "email")
     @Pattern(regexp="(\\w+)@.*",
             message="Key character not entered")
     private String email;
+
+    public Person() {
+    }
+    public Person(Long id, String name, String surname, String email){
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+    }
 
     public Long getId() {
         return id;
